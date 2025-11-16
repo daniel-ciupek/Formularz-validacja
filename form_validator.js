@@ -3,7 +3,7 @@ class FormValidator {
     this.formFields = [];
 
     this.form = document.getElementById("form");
-    this.addFormField("#username", {
+   /* this.addFormField("#username", {
         minlength: 4, maxlength: 20
     });
       this.addFormField("#email", {
@@ -14,13 +14,31 @@ class FormValidator {
     });
       this.addFormField("#password2", {
         minlength: 5, maxlength: 30, matchWithPasswordId: "#password"
-    });
-
+    }); */
+this.processForm();
 
     console.log(this.formFields);
 
 
     this.init();
+  }
+ processForm = () => {
+    this.form.querySelectorAll("input").forEach(e => {
+
+        let minlengthAttr = e.getAttribute("minlength");
+        let minlength = minlengthAttr !== null ? parseInt(minlengthAttr) : undefined;
+
+        let maxlengthAttr = e.getAttribute("maxlength");
+        let maxlength = maxlengthAttr !== null ? parseInt(maxlengthAttr) : undefined;
+
+        let matchWithPasswordId = e.getAttribute("data-match-witch-password-id") || undefined;
+
+        this.addFormField(`#${e.id}`, {
+            minlength,
+            maxlength,
+            matchWithPasswordId
+        });
+    });
   }
 
   addFormField = (cssSelector, options) => {

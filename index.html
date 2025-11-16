@@ -14,7 +14,7 @@
           <label for="username">Nazwa użytkownika</label>
           <input
             type="text"
-            id="username"
+            id="username" minlength="4" maxlength="35"
             placeholder="Wpisz nazwę użytkownika"
           />
           <span>Błąd</span>
@@ -34,6 +34,7 @@
           <input
             type="password"
             id="password2"
+            data-match-witch-password-id="#password"
             placeholder="Wpisz hasło ponownie"
           />
           <span>Błąd</span>
