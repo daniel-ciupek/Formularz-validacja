@@ -92,6 +92,7 @@ h2 {
 
 .field-control span.error {
     color: var(--color-error);
+    visibility: visible;
 }
 
 .registration-form .register-button {
